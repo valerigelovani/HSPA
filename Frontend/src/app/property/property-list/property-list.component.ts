@@ -7,8 +7,10 @@ import { HousingService } from 'src/app/services/housing.service';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit {
-  properties: any;
+  properties: Array<any>;
+
   constructor(private hopusingService: HousingService) {}
+
   ngOnInit(): void {
   this.hopusingService.getAllProperties().subscribe(
   data => {

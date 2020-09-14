@@ -20,9 +20,36 @@ export class UserRegisterComponent implements OnInit {
     password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
     confirmPassword: new FormControl(null, [Validators.required]),
     mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)])
-    });
+    }, this.passwordMatchingValidator);
   }
-// tslint:disable-next-line:typedef
+
+
+passwordMatchingValidator(fg: FormGroup): Validators {
+return fg.get('password').value === fg.get('confirmPassword').value ? null :
+ { notmatched: true };
+}
+
+// Getter Methods
+get userName() {
+  return this.registerationForm.get('userName') as FormControl;
+}
+
+get email() {
+  return this.registerationForm.get('email') as FormControl;
+}
+
+get password() {
+  return this.registerationForm.get('password') as FormControl;
+}
+
+get confirmPassword() {
+  return this.registerationForm.get('confirmPassword') as FormControl;
+}
+
+get mobile() {
+  return this.registerationForm.get('mobile') as FormControl;
+}
+
 onSubmit(){
   console.log(this.registerationForm);
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
@@ -15,7 +15,11 @@ export class UserRegisterComponent implements OnInit {
   // tslint:disable-next-line:typedef
   ngOnInit() {
     this.registerationForm = new FormGroup({
-    userName: new FormControl(),
+    userName: new FormControl('Mark', Validators.required),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+    confirmPassword: new FormControl(null, [Validators.required]),
+    mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)])
     });
   }
 // tslint:disable-next-line:typedef

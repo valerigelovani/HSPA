@@ -12,25 +12,25 @@
     "Price": 22000
   },
   {
-    "Id": 1,
+    "Id": 3,
     "Name": "Valeri House",
     "Type": "House",
     "Price": 32000
   },
   {
-    "Id": 1,
+    "Id": 4,
     "Name": "Gelovani House",
     "Type": "House",
     "Price": 132000
   },
   {
-    "Id": 1,
+    "Id": 5,
     "Name": "Wall House",
     "Type": "House",
     "Price": 122000
   },
   {
-    "Id": 1,
+    "Id": 6,
     "Name": "Jack House",
     "Type": "House",
     "Price": 212000

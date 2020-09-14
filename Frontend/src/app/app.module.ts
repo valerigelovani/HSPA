@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule, Router } from '@angular/router';
 
-import { HousingService } from './services/housing.service';
+import { HousingService, } from './services/housing.service';
+import { UserServiceService } from './services/user-service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     HousingService,
+    UserServiceService
   ],
   bootstrap: [AppComponent]
 })

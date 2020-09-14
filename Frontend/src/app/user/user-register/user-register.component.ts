@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
@@ -10,19 +10,28 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class UserRegisterComponent implements OnInit {
 
   registerationForm: FormGroup;
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   // tslint:disable-next-line:typedef
   ngOnInit() {
-    this.registerationForm = new FormGroup({
-    userName: new FormControl('Mark', Validators.required),
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
-    confirmPassword: new FormControl(null, [Validators.required]),
-    mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)])
-    }, this.passwordMatchingValidator);
+    // this.registerationForm = new FormGroup({
+    // userName: new FormControl('Mark', Validators.required),
+    // email: new FormControl(null, [Validators.required, Validators.email]),
+    // password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+    // confirmPassword: new FormControl(null, [Validators.required]),
+    // mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)])
+    // }, this.passwordMatchingValidator);
+    this.createRegisterationForm();
   }
-
+createRegisterationForm(){
+  this.registerationForm = this.fb.group({
+    userName: [null, Validators.required],
+    email: [null, [Validators.required, Validators.email]],
+    password: [null, [Validators.required, Validators.minLength(8)]],
+    confirmPassword: [null, Validators.required],
+    mobile: [null, [Validators.required, Validators.maxLength(10)]]
+  }, {validators: this.passwordMatchingValidator});
+}
 
 passwordMatchingValidator(fg: FormGroup): Validators {
 return fg.get('password').value === fg.get('confirmPassword').value ? null :

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/model/user';
+import * as alertyfy from 'alertifyjs';
 
 @Component({
   selector: 'app-user-register',
@@ -72,6 +73,9 @@ onSubmit(){
     this.userService.addUser(this.userData());
     this.registerationForm.reset();
     this.userSubmitted = false;
+    alertyfy.success('Congrats, you are successfully registered');
+  }else{
+    alertyfy.error('Kindly provide the required fields');
   }
 }
 

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/model/user';
-import * as alertyfy from 'alertifyjs';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
   selector: 'app-user-register',
@@ -15,7 +15,10 @@ export class UserRegisterComponent implements OnInit {
   registerationForm: FormGroup;
   user: User;
   userSubmitted: boolean;
-  constructor(private fb: FormBuilder, private  userService: UserServiceService) { }
+  constructor(private fb: FormBuilder,
+              private  userService: UserServiceService,
+              private alertify: AlertifyService
+              ) { }
 
   // tslint:disable-next-line:typedef
   ngOnInit() {
@@ -73,9 +76,9 @@ onSubmit(){
     this.userService.addUser(this.userData());
     this.registerationForm.reset();
     this.userSubmitted = false;
-    alertyfy.success('Congrats, you are successfully registered');
+    this.alertify.success('Congrats, you are successfully registered');
   }else{
-    alertyfy.error('Kindly provide the required fields');
+    this.alertify.error('Kindly provide the required fields');
   }
 }
 

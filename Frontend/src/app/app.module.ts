@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule, Router } from '@angular/router';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AuthService} from './services/auth.service';
 import { AlertifyService } from './services/alertify.service';
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,

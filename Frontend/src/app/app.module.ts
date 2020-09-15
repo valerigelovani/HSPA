@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule, Router } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { AuthService} from './services/auth.service';
 import { AlertifyService } from './services/alertify.service';
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,

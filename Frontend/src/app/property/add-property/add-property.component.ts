@@ -47,6 +47,7 @@ propertyView: IPropertyBase = {
   // tslint:disable-next-line:typedef
   onSubmit() {
     console.log(this.addPropertyForm);
+    console.log('SellRent=' + this.addPropertyForm.value.BasicInfo.SellRent);
   }
 
   selectTab(tabId: number) {

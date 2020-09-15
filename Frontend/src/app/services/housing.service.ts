@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { IPropertyBase } from '../model/ipropertybase';
 import {IProperty } from '../modEL/iproperty';
 import { Property } from '../model/property';
+import { IfStmt, STRING_TYPE } from '@angular/compiler';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +33,14 @@ export class HousingService {
   addProperty(property: Property){
     localStorage.setItem('newProp', JSON.stringify(property));
   }
-
+  newPropID() {
+  if (localStorage.getItem('PID')){
+    localStorage.setItem('PID', String(+localStorage.getItem('PID') + 1));
+    return +localStorage.getItem('PID');
+  }else{
+    localStorage.setItem('PID', '101');
+    return 101;
+  }
+  }
 
 }

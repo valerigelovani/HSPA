@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule, Router } from '@angular/router';
 
+import { AuthService} from './services/auth.service';
 import { AlertifyService } from './services/alertify.service';
 import { HousingService, } from './services/housing.service';
 import { UserServiceService } from './services/user-service.service';
@@ -55,7 +56,8 @@ const appRoutes: Routes = [
   providers: [
     HousingService,
     UserServiceService,
-    AlertifyService
+    AlertifyService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

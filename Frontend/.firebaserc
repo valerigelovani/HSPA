@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "uhouse1212"
+  },
+  "targets": {
+    "uhouse1212": {
+      "hosting": {
+        "hspa": [
+          "uhouse1212"
+        ]
+      }
+    }
+  }
+}

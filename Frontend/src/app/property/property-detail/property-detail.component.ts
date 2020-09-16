@@ -22,17 +22,22 @@ property = new Property();
   ngOnInit() {
     // tslint:disable-next-line:no-string-literal
     this.propertyId = Number(this.route.snapshot.params['id']);
-
-    this.route.params.subscribe(
-    (params) => {
-     // tslint:disable-next-line:no-string-literal
-     this.propertyId = +params['id']; // + converting to int
-     this.housingService.getProperty(this.propertyId).subscribe(
-       (data: Property) => {
-         this.property = data;
-       }
-     );
-    }
+    this.route.data.subscribe(
+      (data: Property) => {
+        // tslint:disable-next-line:no-string-literal
+        this.property = data['prp'];
+      }
     );
+    // this.route.params.subscribe(
+    // (params) => {
+    //  // tslint:disable-next-line:no-string-literal
+    //  this.propertyId = +params['id']; // + converting to int
+    //  this.housingService.getProperty(this.propertyId).subscribe(
+    //    (data: Property) => {
+    //      this.property = data;
+    //    }
+    //  );
+    // }
+    // );
   }
 }

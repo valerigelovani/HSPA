@@ -9,9 +9,8 @@ import { IPropertyBase } from 'src/app/model/ipropertybase';
 })
 export class PropertyListComponent implements OnInit {
   SellRent = 1;
-
   properties: IPropertyBase[];
-
+  Today = new Date();
   constructor(private route: ActivatedRoute, private hopusingService: HousingService) {}
 
   ngOnInit(): void {

@@ -1,14 +1,14 @@
 <label>მოძებნე ქალაქი: &nbsp;</label>
 <input [(ngModel)]='City'>
-<button type="button" (click)="onCityFilter()">ძებნა</button>
-<button type="button" (click)="onCityFilterClear()">გასუფთავება</button>
+<button type="button" (click)="onCityFilter()" class="btn btn-dark p-0 m-1">ძებნა</button>
+<button type="button" (click)="onCityFilterClear()" class="btn btn-dark mr-2 p-0">გასუფთავება</button>
 
 <label>დალაგება: &nbsp;</label>
 <select [(ngModel)] = 'SortbyParam'>
  <option value="City">ქალაქი</option>
  <option value="Price">ფასი</option>
 </select>
-<button type="button" (click)="onSortDirection()">
+<button type="button" class="bg-dark text-light" (click)="onSortDirection()">
   <i *ngIf="SortDirection ==='asc'" class="fas fa-sort-alpha-down"></i>
   <i *ngIf="SortDirection ==='desc'" class="fas fa-sort-alpha-up"></i>
 </button>

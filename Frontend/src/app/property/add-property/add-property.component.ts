@@ -21,8 +21,8 @@ export class AddPropertyComponent implements OnInit {
   property = new Property();
 
   // Will come from masters
-  propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex'];
-  furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished'];
+  propertyTypes: Array<string> = ['სახლი', 'ბინა', 'დუპლექსი'];
+  furnishTypes: Array<string> = ['ახალი რემონტი', 'ნახევრად გარემონტებული', 'გასარემონტებელი'];
   cityList: string[];
 
   propertyView: IPropertyBase = {

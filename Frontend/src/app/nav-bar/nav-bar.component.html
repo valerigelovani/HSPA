@@ -7,13 +7,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">Buy <span class="sr-only">(current)</span></a>
+        <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">იყიდება <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/rent-property">Rent</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/rent-property">ქირავდება</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/add-property">List Property (free)</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/add-property">ბინების სია (უფასო)</a>
       </li>
     </ul>
    <div class="nav navbar-nav">
@@ -21,13 +21,13 @@
      <a class="nav-link"
      routerLink="user/register"
      routerLinkActive="active"
-     >Register</a>
+     >რეგისტრაცია</a>
      </li>
      <li *ngIf="!loggedin()" class="nav-item">
      <a class="nav-link"
      routerLink="user/login"
      routerLinkActive="active"
-     >Login</a>
+     >ავტორიზაცია</a>
      </li>
      <!-- <li *ngIf="loggedin()" class="nav-item">
       <a class="nav-link" (click)="onLogout()"
@@ -35,17 +35,17 @@
       </li> -->
       <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
       <a href="#" class="dropdown-toggle text-light" dropdownToggle (click)="false">
-        Welcome {{ loggedinUser }}
+        მოგესალმები {{ loggedinUser }}
       </a>
       <div class="dropdown-menu" *dropdownMenu>
         <a href="#" class="dropdown-item">
           <i class="fas fa-tachometer-alt"></i> View Dashboard</a>
         <a href="#" class="dropdown-item">
-          <i class="far fa-user-circle"></i> My Profile </a>
+          <i class="far fa-user-circle"></i> ჩემი კაბინეტი </a>
         <a href="#" class="dropdown-item">
-            <i class="fas fa-key"></i> Change Password</a>
+            <i class="fas fa-key"></i> პაროლის შეცვლა</a>
         <a (click)='onLogout()' class="dropdown-item">
-            <i class="fas fa-tachometer-alt"></i> Logout </a>
+            <i class="fas fa-tachometer-alt"></i> გამოსვლა </a>
       </div>
     </div>
    </div>

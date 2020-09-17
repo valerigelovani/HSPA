@@ -2,30 +2,30 @@
   <div class="col-8 shadow-lg p-0 bg-white">
     <div class="card">
       <div class="card-header">
-        <h3>List your Property</h3>
+        <h3>განათავსე შენი განცხადება</h3>
       </div>
       <div class="card-body">
         <form (ngSubmit)='onSubmit()' [formGroup]="addPropertyForm">
           <div class="tab-panel">
             <tabset class="member-tabset" #formTabs>
-              <tab heading="Basic Info" formGroupName="BasicInfo" >
+              <tab heading="ძირითადი ინფორმაცია" formGroupName="BasicInfo" >
                 <div class="form-group col-12">
-                <p>I want to</p>
+                <p>მე მსურს </p>
                   <div class="btn-group"
                   btnRadioGroup
                   formControlName="SellRent">
                     <label class="btn btn-outline-primary mr-2"
-                    btnRadio=1 tabindex="0" role="button" name="SellRent">Sell</label>
+                    btnRadio=1 tabindex="0" role="button" name="SellRent">გაყიდვა</label>
                     <label class="btn btn-outline-primary"
-                    btnRadio=2  tabindex="0" role="button" name="SellRent">Rent</label>
+                    btnRadio=2  tabindex="0" role="button" name="SellRent">გაქირავება</label>
                   </div>
                   <div class="error-block" *ngIf="SellRent.invalid && nextClicked">
-                    Please select sell or rent
+                    გთხოვთ აირჩიოთ ქირა ან გაყიდვა
                   </div>
                 </div>
 
                 <div class="form-group col-12">
-                  <p>BHK</p>
+                  <p>ოთახები</p>
                   <div class="btn-group" btnRadioGroup
                   formControlName="BHK"
                   [(ngModel)]="propertyView.BHK" name="BHK">
@@ -38,12 +38,12 @@
                     </label>
                   </div>
                   <div class="error-block" *ngIf="BHK.invalid && nextClicked">
-                    Please select BHK
+                    გთხოვთ აირჩიოთ ოთახების რაოდენობა
                   </div>
                 </div>
 
                 <div class="form-group col-12">
-                  <p>Property Type</p>
+                  <p>საცხოვრებლის ტიპი</p>
                   <div class="btn-group" btnRadioGroup
                   formControlName='PType'
                   [(ngModel)]="propertyView.PType">
@@ -55,12 +55,12 @@
                   </label>
                   </div>
                   <div class="error-block" *ngIf="PType.invalid && nextClicked">
-                    Please select property type
+                    გთხოვთ აირჩიოთ საცხოვრებლის ტიპი
                   </div>
                 </div>
 
                 <div class="form-group col-12">
-                  <p>Furnishing Type</p>
+                  <p>ბინის მდგომარეობა</p>
                   <div class="btn-group" btnRadioGroup
                   formControlName="FType"
                   [(ngModel)]="propertyView.FType">
@@ -73,58 +73,58 @@
                   </label>
                   </div>
                   <div class="error-block" *ngIf="FType.invalid && nextClicked">
-                    Please select furnishing type
+                    გთხოვთ აირჩიოთ რემონტის ტიპი
                   </div>
                 </div>
 
                 <div class="form-group col-12">
-                  <label>in Building/Society/Project</label>
+                  <label>იტალიური ეზო/საერთო საცხოვრებელი/დამოუკიდებელი</label>
                   <input type="text" class="form-control"
                   ngModel
                   formControlName="Name"
                   [(ngModel)]="propertyView.Name">
                   <div class="error-block"
                   *ngIf="Name.invalid && (nextClicked || Name.touched)">
-                    Please select building, society or project name
+                    აუცილებელია საცხოვრებლის ტიპის არჩევა
                   </div>
                 </div>
 
                 <div class="form-group col-12">
-                  <label>City</label>
+                  <label>ქალაქი</label>
                   <select
                   class="form-control"
                   formControlName="City"
                   [(ngModel)]="propertyView.City">
-                  <option  value="">--Select City--</option>
+                  <option  value="">--ქალაქის არჩევა--</option>
                   <option *ngFor="let city of cityList" value={{city}}>
                     {{ city }}
                   </option>
                   </select>
                   <div class="error-block"
                   *ngIf="City.invalid && (nextClicked || City.touched)">
-                    Please select city
+                    გთხოვთ აირჩიოთ ქალაქი
                   </div>
                 </div>
 
                 <div class="form-group col-12">
                     <button type="button"
                     class="btn btn-primary btn-block"
-                    (click)="selectTab(1, BasicInfo.valid)">Next</button>
+                    (click)="selectTab(1, BasicInfo.valid)">შემდეგი</button>
                 </div>
               </tab>
 
-              <tab heading="Pricing and Area" formGroupName="PriceInfo">
+              <tab heading="ფასი/ფართი" formGroupName="PriceInfo">
                   <div class="form-group col-12">
-                    <label *ngIf="SellRent.value==1">Price (in USD)</label>
-                    <label *ngIf="SellRent.value==2">Rent (in USD)</label>
+                    <label *ngIf="SellRent.value==1">ფასი ($)</label>
+                    <label *ngIf="SellRent.value==2">ქირა (in USD)</label>
                     <input type="text" class="form-control"
                     formControlName="Price"
                     [(ngModel)]="propertyView.Price">
                     <div class="error-block"
                     *ngIf="Price.invalid && (nextClicked || Price.touched)">
-                      Please select
-                      <span *ngIf="SellRent.value==1;else ShowRent">price</span>
-                      <ng-template #ShowRent>rent</ng-template>
+                       გთხოვთ შეიყვანოთ
+                      <span *ngIf="SellRent.value==1;else ShowRent">ფასი</span>
+                      <ng-template #ShowRent>ქირა</ng-template>
                     </div>
                   </div>
 
@@ -145,19 +145,19 @@
                   </div>
 
                   <div class="form-group col-12">
-                    <label>Built Area (in Sqr Feet)</label>
+                    <label>ბინის საერთო ფართი (კვ.მ)</label>
                     <input type="text"
                     class="form-control"
                     [(ngModel)]="propertyView.BuiltArea"
                     formControlName="BuiltArea">
                     <div class="error-block"
                     *ngIf="BuiltArea.invalid && nextClicked">
-                      Please select built up area
+                      გთხოვთ შეიყვანოთ ბინის საერთო ფართის მოცულობა
                     </div>
                   </div>
 
                   <div class="form-group col-12">
-                    <label>Carpet Area (in Sqr Feet)</label>
+                    <label>სამზარეულოს მოცულობა (კვ.მ)</label>
                     <input type="text"
                     formControlName="CarpetArea"
                     class="form-control">
@@ -165,42 +165,42 @@
 
                   <div class="form-group col-12">
                     <button type="button" class="btn btn-primary btn-block"
-                    (click)="selectTab(2, PriceInfo.valid)">Next</button>
+                    (click)="selectTab(2, PriceInfo.valid)">შემდეგი</button>
 
                     <button type="button" class="btn btn-primary btn-block"
-                    (click)="selectTab(0, PriceInfo.valid)">Back</button>
+                    (click)="selectTab(0, PriceInfo.valid)">უკან</button>
                   </div>
               </tab>
 
-              <tab heading="Address" formGroupName="AddressInfo">
+              <tab heading="მისამართი" formGroupName="AddressInfo">
 
                 <div class="form-group col-12">
-                  <label>Floor</label>
+                  <label>სართული</label>
                   <input type="text"
                   formControlName="FloorNo"
                   class="form-control">
                 </div>
 
                 <div class="form-group col-12">
-                  <label>Total Floor</label>
+                  <label>სულ სართულები</label>
                   <input type="text"
                   formControlName="TotalFloor"
                   class="form-control">
                 </div>
 
                 <div class="form-group col-12">
-                  <label>Address</label>
+                  <label>მისამართი</label>
                   <input type="text"
                   class="form-control"
                   formControlName="Address">
                   <div class="error-block"
                   *ngIf="Address.invalid && (nextClicked || Address.touched)">
-                    Please select address
+                    გთხოვთ შეიყვანოთ მისამართი
                   </div>
                 </div>
 
                 <div class="form-group col-12">
-                  <label>Landmark</label>
+                  <label>სახლის  ნომერი</label>
                   <input type="text"
                   formControlName="LandMark"
                   class="form-control">
@@ -208,28 +208,28 @@
 
                 <div class="form-group col-12">
                   <button type="button" class="btn btn-primary btn-block"
-                  (click)="selectTab(3, AddressInfo.valid)">Next</button>
+                  (click)="selectTab(3, AddressInfo.valid)">შემდეგი</button>
 
                   <button type="button" class="btn btn-primary btn-block"
-                  (click)="selectTab(1, AddressInfo.valid)">Back</button>
+                  (click)="selectTab(1, AddressInfo.valid)">უკან</button>
                 </div>
               </tab>
 
-              <tab heading="Other Details" formGroupName="OtherInfo">
+              <tab heading="სხვა დეტალები" formGroupName="OtherInfo">
                 <div class="form-group col-12">
-                  <p>Ready to Move</p>
+                  <p>მზად არის საცხოვრებლად</p>
                   <div class="btn-group" btnRadioGroup
                   formControlName="RTM">
                     <label class="btn btn-outline-primary mr-2"
                       btnRadio=1 tabindex="0" role="button"
-                      name="RTM">Yes
+                      name="RTM">დიახ
                     </label>
                     <label class="btn btn-outline-primary"
-                      btnRadio=2  tabindex="0" role="button" name="RTM">No
+                      btnRadio=2  tabindex="0" role="button" name="RTM">არა
                     </label>
                   </div>
                   <div class="error-block" *ngIf="RTM.invalid && nextClicked">
-                    Please select ready to move
+                    გთხოვთ აირჩიოთ ბინა მზად არის თუ არა საცხოვრებლად
                   </div>
                 </div>
 
@@ -237,7 +237,7 @@
                 <div
                 *ngIf="RTM.value==2"
                 class="form-group col-6">
-                  <label>Possession/Avaialble From</label>
+                  <label>ბინა მზად იქნება (რიცხვი)</label>
                   <input type="text"
                   class="form-control"
                   formControlName="PossessionOn"
@@ -249,41 +249,41 @@
                 <div
                 *ngIf="RTM.value==1"
                 class="form-group col-3">
-                  <label>Age of Property</label>
+                  <label>ბინის წლოვანება</label>
                   <input type="text"
                   formControlName="AOP"
                   class="form-control">
                 </div>
 
                 <div class="form-group col-12">
-                  <p>Gated Community</p>
+                  <p>მეზობელი სართულზე</p>
                   <div class="btn-group"
                   btnRadioGroup
                   formControlName="Gated">
                     <label class="btn btn-outline-primary mr-2"
-                    btnRadio=1 tabindex="0" role="button" name="Gated">Yes</label>
+                    btnRadio=1 tabindex="0" role="button" name="Gated">დიახ</label>
                     <label class="btn btn-outline-primary"
-                    btnRadio=2  tabindex="0" role="button" name="Gated">No</label>
+                    btnRadio=2  tabindex="0" role="button" name="Gated">არა</label>
                   </div>
                 </div>
 
                 <div class="form-group col-12">
-                  <p>Main Entrance</p>
+                  <p>მთავარი შესასვლელი</p>
                   <div class="btn-group" btnRadioGroup
                   formControlName="MainEntrance">
                     <label class="btn btn-outline-primary mr-2"
-                    btnRadio=1 tabindex="0" role="button" name="Entrance">East</label>
+                    btnRadio=1 tabindex="0" role="button" name="Entrance">აღმოსავლეთი</label>
                     <label class="btn btn-outline-primary"
-                    btnRadio=2  tabindex="0" role="button" name="Entrance">West</label>
+                    btnRadio=2  tabindex="0" role="button" name="Entrance">დასავლეთი</label>
                     <label class="btn btn-outline-primary"
-                    btnRadio=3  tabindex="0" role="button" name="Entrance">South</label>
+                    btnRadio=3  tabindex="0" role="button" name="Entrance">სამხრეთი</label>
                     <label class="btn btn-outline-primary"
-                    btnRadio=4  tabindex="0" role="button" name="Entrance">North</label>
+                    btnRadio=4  tabindex="0" role="button" name="Entrance">ჩრდილოეთი</label>
                   </div>
                 </div>
 
                 <div class="form-group col-12">
-                  <label>Description</label>
+                  <label>აღწერა</label>
                   <textarea type="text"
                   class="form-control"
                   formControlName="Description"
@@ -292,25 +292,25 @@
 
                 <div class="form-group col-12">
                     <button type="button" class="btn btn-primary btn-block"
-                    (click)="selectTab(4, OtherInfo.valid)">Next</button>
+                    (click)="selectTab(4, OtherInfo.valid)">შემდეგი</button>
 
                     <button type="button" class="btn btn-primary btn-block"
-                    (click)="selectTab(2, OtherInfo.valid)">Back</button>
+                    (click)="selectTab(2, OtherInfo.valid)">უკან</button>
                 </div>
               </tab>
 
-              <tab heading="Photos">
+              <tab heading="სურათები">
                 <div class="form-group col-12">
                   <div class="photo-control">
-                      <button class="mt-5" type="button">Upload</button> <br>
-                      This is under construction
+                      <button class="mt-5" type="button">ატვირთვა</button> <br>
+                      მზადების პროცესშია
                   </div>
                 </div>
                 <div class="form-group col-12">
                   <button type="button" class="btn btn-primary btn-block"
-                  (click)="selectTab(3, true)">Back</button>
-                  <button type="submit" class="btn btn-primary btn-block">Save</button>
-                  <button type="reset" class="btn btn-primary btn-block">Cancel</button>
+                  (click)="selectTab(3, true)">უკან</button>
+                  <button type="submit" class="btn btn-primary btn-block">შენახვა</button>
+                  <button type="reset" class="btn btn-primary btn-block">გაუქმება</button>
                 </div>
               </tab>
             </tabset>

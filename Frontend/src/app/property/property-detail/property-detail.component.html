@@ -9,29 +9,30 @@
       <div class="card-body">
         <h1 class="card-title">{{property.Name}}</h1>
         <div>
-            <strong>{{property.BHK}} BHK {{property.PType}} @ ${{property.Price}}</strong>
+            <strong>{{property.PType}}:</strong> {{property.BHK}} ოთახი  <strong> <br>
+              ფასი:</strong> {{property.Price}}$
         </div>
         <div>
-           <strong>in {{property.City}}</strong>
+           <strong>ქალაქი: </strong>{{property.City}}
         </div> <hr>
         <div>
-            <strong>Build Area: </strong>
-            {{property.BuiltArea}} Sqft
+            <strong>ფართი </strong>
+            {{property.BuiltArea}} კვ.მ
         </div>
 
         <div>
-            <strong>Carpet Area: </strong>
-            {{property.CarpetArea}} Sqft
+            <strong>სამზარეულო: </strong>
+            {{property.CarpetArea}} კვ.მ
         </div>
         <div>
-            <strong>Furnishing Type: </strong>
+            <strong>რემონტი: </strong>
             {{property.FType}}
         </div>
       </div>
       <div class="card-footer">
         <div class="btn-group d-flex">
-          <button class="btn btn-primary">Like</button>
-          <button class="btn btn-success">Message</button>
+          <button class="btn btn-primary">მოწონება</button>
+          <button class="btn btn-success">შეტყობინება</button>
         </div>
       </div>
   </div>
@@ -39,76 +40,76 @@
   <div class="col-sm-8 p-0">
     <div class="tab-panel p-3">
       <tabset class="member-tabset">
-        <tab heading="Overview">
-          <h1>Overview</h1>
+        <tab heading="მიმოხილვა">
+          <h1>მიმოხილვა</h1>
           <div class="row">
               <div class="col-sm-6">
                   <div class="heading">
-                      <strong>Project Name</strong>
+                      <strong>პროექტის სახელი</strong>
                       <p>{{property.Name}}</p>
                   </div>
 
                   <div class="heading">
-                      <strong>Floor Number</strong>
+                      <strong>სართული</strong>
                       <p>{{property.FloorNo}}</p>
                   </div>
 
                   <div class="heading">
-                      <strong>Age of Property</strong>
+                      <strong>ბინის წლოვანება</strong>
                       <p>{{property.AOP}}</p>
                   </div>
 
                   <div class="heading">
-                      <strong>Posession</strong>
+                      <strong>პოზიცია</strong>
                       <p>{{property.Possession}}</p>
                   </div>
               </div>
 
               <div class="col-sm-6">
                   <div class="heading">
-                      <strong>Main Entrance</strong>
+                      <strong>მთავარი შესასვლელი</strong>
                       <p>{{property.MainEntrance}}</p>
                   </div>
 
                   <div class="heading">
-                      <strong>Gated Community</strong>
+                      <strong>მეზობელი</strong>
                       <p>{{property.Gated}}</p>
                   </div>
 
                   <div class="heading">
-                      <strong>Security Deposit</strong>
+                      <strong>დაცვის გადასახადი</strong>
                       <p>{{property.Security}}</p>
                   </div>
                   <div class="heading">
-                      <strong>Maintenance</strong>
+                      <strong>მომსახურეობა</strong>
                       <p>{{property.Maintenance}}</p>
                   </div>
               </div>
               <div class="col-sm-12">
                   <div class="heading">
-                      <strong>About Property</strong>
+                      <strong>ბინის შესახებ</strong>
                       <p>{{property.Description}}</p>
                   </div>
               </div>
             </div>
         </tab>
-        <tab heading="Address">
+        <tab heading="მისამართი">
           <div class="col-sm-12">
-            <h1>Address</h1>
+            <h1>მისამართი</h1>
             <div class="heading">
-                <strong>{{property.Address}}</strong><br/>
-                <strong>{{property.Address2}}</strong><br/>
-                <strong>{{property.City}}</strong>
+              <strong> ქუჩა: </strong> {{property.Address}}<br/>
+                <strong>სახლის ნომერი: </strong> {{property.Address2}} <br/>
+                <strong>ქალაქი:</strong> {{property.City}}
             </div>
         </div>
 
         </tab>
-        <tab heading="Photos">
+        <tab heading="სურათები">
           <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
         </tab>
-        <tab heading="Contact">
-          <h1>Contact Detail</h1>
-          This should be restricted area and only registered user should be able to see seller contact details
+        <tab heading="კონტაქტი">
+          <h1>საკონტაკტო ინფორმაცია</h1>
+          ეს ინფორმაცია ხელმისაწვდომია მხოლოდ დარეგისტრირებული მომხმარებლისათვის
         </tab>
       </tabset>
     </div>

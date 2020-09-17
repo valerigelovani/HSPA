@@ -76,9 +76,9 @@ onSubmit(){
     this.userService.addUser(this.userData());
     this.registerationForm.reset();
     this.userSubmitted = false;
-    this.alertify.success('Congrats, you are successfully registered');
+    this.alertify.success('გილოცავთ, თქვენ წარმატებით გაიარეთ რეგისტრაცია');
   }else{
-    this.alertify.error('Kindly provide the required fields');
+    this.alertify.error('გთხოვთ შეავსეთ სავალდებულო ველები');
   }
 }
 

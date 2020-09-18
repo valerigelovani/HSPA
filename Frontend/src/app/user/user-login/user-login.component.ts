@@ -25,7 +25,7 @@ export class UserLoginComponent implements OnInit {
   const token = this.authService.authUser(loginForm.value);
    if (token){
      localStorage.setItem('token', token.userName);
-     this.alertify.success('თქვენ წარმატებით გაიარეთ რეგისტრაცია');
+     this.alertify.success('თქვენ წარმატებით გაიარეთ ავტორიზაცია');
      this.router.navigate(['/']);
   }else{
      this.alertify.error('მომხმარებლის სახელი ან პაროლი არასწორია');

@@ -7,6 +7,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { PropertyDetailResolverService } from './property/property-detail/property-detail-resolver.service';
 import { AuthService} from './services/auth.service';
@@ -62,6 +63,7 @@ const appRoutes: Routes = [
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    NgbModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
